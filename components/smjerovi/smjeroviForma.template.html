@@ -1,0 +1,21 @@
+
+<div id="login-form" class="login-clean">
+    <form novalidate name="ustanoveForm" ng-submit="c.unesi(ustanoveForm.$valid)">
+        <h3>Unos ustanove:</h3>
+
+        <fieldset class="form-group">
+            <label>Naziv</label>
+            <input name="naziv" class="form-control" type="text" ng-model="c.smjer.naziv" required />
+        </fieldset>
+
+        <input name="ustanovaId" class="form-control" type="text" ng-model="c.smjer.ustanovaId" required hidden/>
+
+        <fieldset class="form-group">
+            <label>Ustanova</label>
+            <input name="ustanova" class="form-control" type="text" ng-model="c.smjer.ustanova" required disabled/>
+        </fieldset>
+
+        <input type="submit" class="btn btn-success btn-block" ng-disabled="ustanoveForm.$invalid" value="Unesi"/>
+        </br>
+    </form>
+</div>

@@ -1,0 +1,52 @@
+<div id="login-form" class="login-clean">
+    <form novalidate name="registerForm" ng-submit="c.register(registerForm.$valid)">
+        <h3>Registracijska forma:</h3>
+
+        <fieldset class="form-group">
+            <label>Ime:</label>
+            <input name="ime" class="form-control" type="text" ng-model="c.credentials.ime" required />
+        </fieldset>
+
+        <fieldset class="form-group">
+            <label>Prezime:</label>
+            <input name="prezime" class="form-control" type="text" ng-model="c.credentials.prezime" required />
+        </fieldset>
+
+        <fieldset ng-class="{ 'has-error' : registerForm.username.$invalid && !registerForm.username.$pristine}" class="form-group">
+            <label>Username:</label>
+            <input name="username" class="form-control" type="text" ng-model="c.credentials.username" required ng-minlength="4"/>
+            <p ng-show="registerForm.username.$error.minlength" class="validation-error" >Username is too short.</p>
+        </fieldset>
+
+        <fieldset class="form-group">
+            <label>Password:</label>
+            <input class="form-control" type="password" ng-model="c.credentials.password" required/>
+        </fieldset>
+
+        <fieldset ng-class="{ 'has-error' : registerForm.email.$invalid && !registerForm.email.$pristine }" class="form-group">
+            <label>Email:</label>
+            <input name="email" class="form-control" type="email" ng-model="c.credentials.email" required/>
+            <p ng-show="registerForm.email.$invalid && !registerForm.email.$pristine" class="validation-error">Enter a valid email.</p>
+        </fieldset>
+
+        <fieldset class="form-group">
+            <label>Ustanova:</label>
+            <select name="ustanova" class="form-control" type="text" ng-model="c.credentials.ustanova" ng-change="c.getSmjerovi()" required>
+                <option ng-repeat="ustanova in c.ustanove" value="{{ustanova.idUstanove}}">{{ustanova.naziv}}</option>
+            </select>
+        </fieldset>
+
+        <fieldset class="form-group">
+            <label>Smjer:</label>
+            <select name="smjer" class="form-control" type="text" ng-model="c.credentials.smjer" required>
+                <option ng-repeat="smjer in c.smjerovi" value="{{smjer.idSmjera}}">{{smjer.naziv}}</option>
+                <!--option value="2">Računarstvo</option>
+                <option value="3">Elektrotehnika</option-->
+            </select>
+        </fieldset>
+
+        <input type="submit" class="btn btn-success btn-block" ng-disabled="registerForm.$invalid" value="Registriraj se"/>
+        </br>
+        <a ui-sref="login">Povratak na prijavu</a>
+    </form>
+</div>

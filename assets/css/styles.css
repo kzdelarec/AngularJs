@@ -1,0 +1,86 @@
+
+.validation-error{
+	color: red;
+}
+
+.red{
+	background-color:#ff010133;
+}
+
+.green{
+	background-color: #4fbf4f33;
+}
+
+.good{
+	color:green;
+}
+
+.bad{
+	color:red;
+}
+
+.input-group.md-form.form-sm.form-1 input{
+    border: 1px solid #bdbdbd;
+    border-top-right-radius: 0.25rem;
+    border-bottom-right-radius: 0.25rem;
+}
+.input-group.md-form.form-sm.form-2 input {
+    border: 1px solid #bdbdbd;
+    border-top-left-radius: 0.25rem;
+    border-bottom-left-radius: 0.25rem;
+}
+.input-group.md-form.form-sm.form-2 input.lime-border  {
+    border: 1px solid #bdbdbd;
+}
+
+.right{
+    float: right;
+}
+
+.left{
+    float: left;
+}
+
+.clear{
+    clear: both;
+}
+.block{
+    display: inline-block;
+}
+
+.gumbi{
+    margin: 15px 0 10px 45px !important;
+}
+
+.profil{
+    padding-right: 15px !important;
+    padding-left: 60px !important;
+}
+
+.active{
+     background: #e9ecef;
+}
+
+.userInfo{
+    padding-top:5px;
+    padding-bottom:5px;
+}
+
+.newForm{
+    padding-top: 47px;
+    padding-right: 60px !important;
+}
+
+ul{
+    list-style: none;
+    padding: 0;
+}
+
+.inline{
+    display: inline !important;
+}
+.icon{
+    font-size: 14px;
+    padding-right: 10px;
+    vertical-align: middle;
+}

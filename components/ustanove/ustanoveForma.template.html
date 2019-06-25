@@ -1,0 +1,25 @@
+
+<div id="login-form" class="login-clean">
+    <form novalidate name="ustanoveForm" ng-submit="c.unesi(ustanoveForm.$valid)">
+        <h3>Unos ustanove:</h3>
+
+        <fieldset class="form-group">
+            <label>Naziv</label>
+            <input name="naziv" class="form-control" type="text" ng-model="c.ustanova.naziv" required />
+        </fieldset>
+
+        <fieldset class="form-group">
+            <label>Adresa</label>
+            <input name="adresa" class="form-control" type="text" ng-model="c.ustanova.adresa" required />
+        </fieldset>
+
+        <fieldset ng-class="{ 'has-error' : ustanoveForm.username.$invalid && !ustanoveForm.username.$pristine}" class="form-group">
+            <label>OIB</label>
+            <input name="oib" class="form-control" type="number" ng-model="c.ustanova.oib" required ng-minlength="11" ng-maxlength="11"/>
+            <p ng-show="ustanoveForm.oib.$error.minlength || ustanoveForm.oib.$error.maxlength" class="validation-error" >OIB mora sadržavati 11 brojeva.</p>
+        </fieldset>
+
+        <input type="submit" class="btn btn-success btn-block" ng-disabled="ustanoveForm.$invalid" value="Unesi"/>
+        </br>
+    </form>
+</div>

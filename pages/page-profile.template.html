@@ -1,0 +1,20 @@
+<div class="row">
+
+    <div class="col-md-12 profil" >
+
+        <h5>Korisnički podaci: </h5><br/>
+        <span class="userInfo"><b>E-mail:</b> {{c.user.email}}</span><br/>
+        <span class="userInfo"><b>Ime i prezime:</b> {{c.user.ime}} </span><br/>
+        <span class="userInfo"><b>Ustanova:</b> {{c.user.ustanova}} </span><br/>
+        <span class="userInfo"><b>Smjer:</b> {{c.user.smjer}} </span><br/> <br/>
+
+    </div>
+
+    <span class="profil">Moje ocjene ({{c.posts.length}}):</span> <br/>
+
+    <div class="col-md-12">
+        <post ng-repeat="post in c.posts" editable="false" post="post"></post>
+    </div>
+
+</div>
+<a ui-sref="main">Back</a>
