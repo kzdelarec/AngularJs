@@ -27,6 +27,28 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 
 
         echo json_encode($data);
+    } else {
+
+        $data = file_get_contents("php://input");
+        $objData = json_decode($data);
+
+        $sql = "SELECT s.naziv, s.idSmjera AS idSmjera,u.naziv AS ustanova, u.idUstanove as idUstanove FROM smjerovi s
+                  JOIN ustanove u ON s.idUstanove = u.idUstanove";
+        $result = mysqli_query($dbc, $sql);
+
+        $data = array();
+
+        if (mysqli_num_rows($result) > 0) {
+
+
+            while ($row = mysqli_fetch_array($result)) {
+                array_push($data, $row);
+            }
+
+        }
+
+
+        echo json_encode($data);
     }
 }
 

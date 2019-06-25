@@ -23,6 +23,10 @@ app.config(function($stateProvider, $urlRouterProvider) {
         url:'/smjerovi',
         component:'smjeroviPage'
 
+    }).state('profesori',{
+        url:'/profesori',
+        component:'profesoriPage'
+
     });
 
     $urlRouterProvider.otherwise('/');

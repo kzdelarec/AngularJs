@@ -5,7 +5,20 @@ class SmjeroviService {
         this.http=$http;
         this.rootScope = $rootScope;
         this.smjerovi = null;
+        this.http.get('./server/smjerovi.php').then(d => {
 
+            this.smjerovi=d.data;
+            this.rootScope.$broadcast('init');
+
+        });
+
+    }
+
+    getSviSmjerovi(){
+        this.http.get('./server/smjerovi.php').then(d => {
+            this.smjerovi=d.data;
+            this.rootScope.$broadcast('smjer', this.smjerovi);
+        });
     }
 
     getSmjerovi(id){
