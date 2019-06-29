@@ -31,7 +31,8 @@ class UstanoveService {
                     adresa:ustanova.adresa,
                     oib:ustanova.oib
                 });
-                this.rootScope.$emit('added');
+
+                this.rootScope.$broadcast('ustanovaDodano', true);
 
             } else {
 

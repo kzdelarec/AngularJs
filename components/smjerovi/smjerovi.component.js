@@ -6,7 +6,7 @@ app.component('smjerovi',{
         this.$onInit=function(){
 
             this.ustanove=UstanoveService.loadUstanove();
-
+            this.smjerovi = SmjeroviService.getSviSmjerovi();
         };
 
         $scope.$on('init', (event, posts)=>{
@@ -16,9 +16,18 @@ app.component('smjerovi',{
 
         });
 
+        this.transfer = function () {
+
+            let data={
+                id:this.ustanova.idUstanove
+            };
+
+            SmjeroviService.transfer(data);
+        }
+
 
         this.getSmjerovi = function(){
-            this.smjerovi = SmjeroviService.loadSmjerovi($scope.c.ustanova);
+            this.smjerovi = SmjeroviService.getSviSmjerovi();
             return this.smjerovi;
         };
 

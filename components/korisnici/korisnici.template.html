@@ -1,0 +1,20 @@
+<div class="izbornik">
+    <fieldset class="form-group profil profil col-md-6">
+        <label>Ustanova:</label>
+        <select name="ustanova" class="form-control" type="text" ng-model="c.ustanova.idUstanove" >
+            <option ng-repeat="ustanova in c.ustanove" value="{{ustanova.idUstanove}}">{{ustanova.naziv}}</option>
+        </select>
+    </fieldset>
+
+    <fieldset class="form-group profil profil col-md-6">
+        <label>Smjer:</label>
+        <select name="smjer" class="form-control" type="text" ng-model="c.smjer.idS">
+            <option ng-repeat="smjer in c.smjerovi | filter:c.ustanova:true" value="{{smjer.idSmjera}}">{{smjer.naziv}}</option>
+        </select>
+    </fieldset>
+</div>
+
+<div class="profil" ng-show="(c.profesori | filterProfesora:c.smjer.idS:c.ustanova.idUstanove)<1">Nema zapisa</div>
+
+
+<profesor ng-repeat="profesor in c.profesori | filterProfesora:c.smjer.idS:c.ustanova.idUstanove | orderBy:'id'" profesor="profesor"></profesor>

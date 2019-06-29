@@ -21,44 +21,8 @@ class SmjeroviService {
         });
     }
 
-    getSmjerovi(id){
-        this.http.get('./server/smjerovi.php?id=' + id).then(d => {
-
-            console.log("smjerovi.php?id=" + id)
-            this.smjerovi=d.data;
-            if(this.smjerovi.length != 0){
-                console.log(this.smjerovi);
-                let data = {
-                    id:id,
-                    ustanova: this.smjerovi[0].ustanova
-                };
-
-                this.rootScope.$broadcast('odabrano', data);
-                this.rootScope.$broadcast('smjer', this.smjerovi);
-            } else {
-                this.getUstanovu(id);
-            }
-
-        });
-    }
-
-    getUstanovu(id) {
-        this.http.get('./server/ustanove.php?idUstanove=' + id).then(d => {
-
-            this.ustanove=d.data;
-                console.log(this.smjerovi);
-                let data = {
-                    id:id,
-                    ustanova: this.ustanove[0].naziv
-                };
-
-                this.rootScope.$broadcast('odabrano', data);
-                this.rootScope.$broadcast('smjer', this.smjerovi);
-        });
-    }
-
-    loadSmjerovi(id){
-        return this.getSmjerovi(id);
+    transfer(data){
+        this.rootScope.$broadcast('odabrano', data);
     }
 
     unesiSmjer(smjer){
@@ -70,9 +34,11 @@ class SmjeroviService {
 
                 this.smjerovi.push({
                     naziv:smjer.naziv,
-                    ustanova:smjer.ustanova
+                    ustanova:smjer.ustanova,
+                    idUstanove: smjer.ustanovaId
                 });
 
+                this.rootScope.$broadcast('smjerDodano', true);
             } else {
 
                 alert('Greška pri spremanju smjera!');

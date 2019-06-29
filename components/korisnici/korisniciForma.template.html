@@ -1,0 +1,39 @@
+
+<div id="login-form" class="login-clean">
+    <form novalidate name="ustanoveForm" ng-submit="c.unesi(ustanoveForm.$valid)">
+        <h3>Unos ustanove:</h3>
+
+        <fieldset class="form-group">
+            <label>Ime</label>
+            <input name="ime" class="form-control" type="text" ng-model="c.profesor.ime" required />
+        </fieldset>
+
+        <fieldset class="form-group">
+            <label>Prezime</label>
+            <input name="prezime" class="form-control" type="text" ng-model="c.profesor.prezime" required />
+        </fieldset>
+
+        <fieldset class="form-group">
+            <label>Titula:</label>
+            <select name="smjer" class="form-control" type="text" ng-model="c.profesor.roleId">
+                <option ng-repeat="titula in c.titule" value="{{titula.roleid}}">{{titula.description}}</option>
+            </select>
+        </fieldset>
+
+        <input name="smjerId" class="form-control" type="text" ng-model="c.profesor.smjerId" required hidden/>
+        <input name="idUStanova" class="form-control" type="text" ng-model="c.profesor.idUstanova" required hidden/>
+
+        <fieldset class="form-group">
+            <label>Ustanova</label>
+            <input name="ustanova" class="form-control" type="text" ng-model="c.profesor.ustanova" required disabled/>
+        </fieldset>
+
+        <fieldset class="form-group">
+            <label>Smjer</label>
+            <input name="smjer" class="form-control" type="text" ng-model="c.profesor.smjer" required disabled/>
+        </fieldset>
+
+        <input type="submit" class="btn btn-success btn-block" ng-disabled="ustanoveForm.$invalid" value="Unesi"/>
+        </br>
+    </form>
+</div>

@@ -1,9 +1,9 @@
 <fieldset class="form-group profil profil col-md-6 izbornik">
     <label>Ustanova:</label>
-    <select name="ustanova" class="form-control" type="text" ng-model="c.ustanova" ng-change="c.getSmjerovi()">
+    <select name="ustanova" class="form-control" type="text" ng-model="c.ustanova.idUstanove" ng-change="c.transfer()" >
         <option ng-repeat="ustanova in c.ustanove" value="{{ustanova.idUstanove}}">{{ustanova.naziv}}</option>
     </select>
 </fieldset>
 
 
-<smjer ng-repeat="smjer in c.smjerovi | orderBy:'id'" smjer="smjer"></smjer>
+<smjer ng-repeat="smjer in c.smjerovi | filter:c.ustanova:true" smjer="smjer"></smjer>
