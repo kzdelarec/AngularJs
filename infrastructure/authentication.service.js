@@ -38,13 +38,10 @@ class AuthenticationService {
                 sessionStorage.setItem('authenticated',true);
                 sessionStorage.setItem('user',JSON.stringify(d.data[0]));
                 this.state.go('main');
-
-
             }
 
             else {
-
-                alert('Wrong credentials');
+                this.rootScope.$broadcast("loginFailed", true);
 
             }
 

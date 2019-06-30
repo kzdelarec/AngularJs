@@ -1,39 +1,47 @@
 
 <div id="login-form" class="login-clean">
-    <form novalidate name="ustanoveForm" ng-submit="c.unesi(ustanoveForm.$valid)">
-        <h3>Unos ustanove:</h3>
+    <form novalidate name="ustanoveForm" ng-submit="c.uredi(ustanoveForm.$valid)">
 
         <fieldset class="form-group">
             <label>Ime</label>
-            <input name="ime" class="form-control" type="text" ng-model="c.profesor.ime" required />
+            <input name="ime" class="form-control" type="text" ng-model="c.korisnik.ime" required />
         </fieldset>
 
         <fieldset class="form-group">
             <label>Prezime</label>
-            <input name="prezime" class="form-control" type="text" ng-model="c.profesor.prezime" required />
+            <input name="prezime" class="form-control" type="text" ng-model="c.korisnik.prezime" required />
+        </fieldset>
+
+        <fieldset class="form-group">
+            <label>Email</label>
+            <input name="email" class="form-control" type="text" ng-model="c.korisnik.email" required />
         </fieldset>
 
         <fieldset class="form-group">
             <label>Titula:</label>
-            <select name="smjer" class="form-control" type="text" ng-model="c.profesor.roleId">
+            <select name="smjer" class="form-control" type="text" ng-model="c.korisnik.rId">
                 <option ng-repeat="titula in c.titule" value="{{titula.roleid}}">{{titula.description}}</option>
             </select>
         </fieldset>
 
-        <input name="smjerId" class="form-control" type="text" ng-model="c.profesor.smjerId" required hidden/>
-        <input name="idUStanova" class="form-control" type="text" ng-model="c.profesor.idUstanova" required hidden/>
+        <input name="smjerId" class="form-control" type="text" ng-model="c.korisnik.idS" required hidden/>
+        <input name="idUStanova" class="form-control" type="text" ng-model="c.korisnik.idUstanove" required hidden/>
 
         <fieldset class="form-group">
-            <label>Ustanova</label>
-            <input name="ustanova" class="form-control" type="text" ng-model="c.profesor.ustanova" required disabled/>
+            <label>Ustanova:</label>
+            <select name="ustanova" class="form-control" type="text" ng-model="c.korisnik.idUstanove" >
+                <option ng-repeat="ustanova in c.ustanove" value="{{ustanova.idUstanove}}">{{ustanova.naziv}}</option>
+            </select>
         </fieldset>
 
         <fieldset class="form-group">
-            <label>Smjer</label>
-            <input name="smjer" class="form-control" type="text" ng-model="c.profesor.smjer" required disabled/>
+            <label>Smjer:</label>
+            <select name="smjer" class="form-control" type="text" ng-model="c.korisnik.idS">
+                <option ng-repeat="smjer in c.smjerovi | filter:c.korisnik.idUstanove:true" value="{{smjer.idSmjera}}">{{smjer.naziv}}</option>
+            </select>
         </fieldset>
 
-        <input type="submit" class="btn btn-success btn-block" ng-disabled="ustanoveForm.$invalid" value="Unesi"/>
+        <input type="submit" class="btn btn-success btn-block" ng-disabled="ustanoveForm.$invalid" value="Spremi"/>
         </br>
     </form>
 </div>

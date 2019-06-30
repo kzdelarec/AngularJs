@@ -4,12 +4,28 @@
             <div class="jumbotron" style="padding: 2rem 1rem;">
                 <div class="block">
                     <h2>
-                        {{c.profesor.ime}}, {{c.profesor.titula}}
+                        {{c.korisnik.ime}} {{c.korisnik.prezime}}, {{c.korisnik.rola}}
                     </h2>
-                    <span>Ustanova: {{c.profesor.ustanova}}</span>
+                    <span>Korisničko ime: {{c.korisnik.username}}</span>
                     <br/>
-                    <span>Smjer: {{c.profesor.smjer}}</span>
+                    <span>Email: {{c.korisnik.email}}</span>
                     <br/>
+                    <span>Ustanova: {{c.korisnik.ustanova}}</span>
+                    <br/>
+                    <span>Smjer: {{c.korisnik.smjer}}</span>
+                </div>
+                <div class="right jumbotron " style="padding: 2rem 1rem;">
+                    <div>
+                        <i class="material-icons bad" style="cursor:default" title="obriši" ng-click="c.delete(c.korisnik.id)">
+                            delete_forever
+                        </i>
+                    </div>
+                    <br>
+                    <div >
+                        <i class="material-icons edit" style="cursor:default" title="uredi" ng-click="c.update(c.korisnik)">
+                            create
+                        </i>
+                    </div>
                 </div>
             </div>
         </div>

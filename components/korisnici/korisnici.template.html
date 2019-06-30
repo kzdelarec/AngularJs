@@ -14,7 +14,7 @@
     </fieldset>
 </div>
 
-<div class="profil" ng-show="(c.profesori | filterProfesora:c.smjer.idS:c.ustanova.idUstanove)<1">Nema zapisa</div>
+<div class="profil" ng-show="(c.korisnici | filterKorisnika:c.smjer.idS:c.ustanova.idUstanove)<1">Nema zapisa</div>
 
 
-<profesor ng-repeat="profesor in c.profesori | filterProfesora:c.smjer.idS:c.ustanova.idUstanove | orderBy:'id'" profesor="profesor"></profesor>
+<korisnik ng-repeat="korisnik in c.korisnici | orderBy:'id' | filterKorisnika:c.smjer.idS:c.ustanova.idUstanove" korisnik="korisnik"></korisnik>

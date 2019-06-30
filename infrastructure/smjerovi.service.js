@@ -6,10 +6,8 @@ class SmjeroviService {
         this.rootScope = $rootScope;
         this.smjerovi = null;
         this.http.get('./server/smjerovi.php').then(d => {
-
             this.smjerovi=d.data;
             this.rootScope.$broadcast('init');
-
         });
 
     }
@@ -19,6 +17,29 @@ class SmjeroviService {
             this.smjerovi=d.data;
             this.rootScope.$broadcast('smjer', this.smjerovi);
         });
+    }
+
+    getSmjerovi(id){
+        this.http.get('./server/smjerovi.php?id=' + id).then(d => {
+
+            console.log("smjerovi.php?id=" + id)
+            this.smjerovi=d.data;
+            if(this.smjerovi.length != 0){
+                console.log(this.smjerovi);
+                let data = {
+                    id:id,
+                    ustanova: this.smjerovi[0].ustanova
+                };
+
+                this.rootScope.$broadcast('odabrano', data);
+                this.rootScope.$broadcast('smjer', this.smjerovi);
+            }
+
+        });
+    }
+
+    loadSmjerovi(id){
+        return this.getSmjerovi(id);
     }
 
     transfer(data){

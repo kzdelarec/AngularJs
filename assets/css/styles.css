@@ -89,3 +89,13 @@ ul{
     margin-top: 45px;
     margin-left: -15px;
 }
+
+.warning{
+    font-size: 24px;
+    vertical-align: middle;
+    padding-right: 5px;
+}
+
+.edit{
+    color: #007bff;
+}

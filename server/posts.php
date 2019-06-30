@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         $sql="SELECT CONCAT(p.ime, ' ', p.prezime) AS ime, p.id as id, s.naziv AS smjer, u.naziv AS ustanova FROM profesori p
 JOIN smjerovi s ON p.smjerId = s.idSmjera
 JOIN ustanove u ON p.idUstanove = u. idUstanove
-WHERE p.idUstanove=1 AND p.smjerId=4";
+WHERE p.idUstanove=21 AND p.smjerId=24";
         $result=mysqli_query($dbc,$sql);
 
         $data=array();

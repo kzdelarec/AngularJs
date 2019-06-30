@@ -5,12 +5,10 @@ app.component('ustanoveForma',{
 
         this.user=AuthenticationService.getUser();
 
-        $scope.$on('ustanovaDodano', (event, status)=>{
-            if(status == true){
+        $scope.$on('refreshUstanove', (event, data)=>{
                 this.ustanova.naziv="";
                 this.ustanova.adresa="";
                 this.ustanova.oib="";
-            }
         });
 
         this.unesi=function(){

@@ -1,21 +1,21 @@
-app.component('profesori',{
+app.component('korisnici',{
 
-    templateUrl:'./components/profesori/profesori.template.html',
-    controller:function($scope, AuthenticationService, UstanoveService, SmjeroviService, ProfesoriService){
+    templateUrl:'./components/korisnici/korisnici.template.html',
+    controller:function($scope, AuthenticationService, UstanoveService, SmjeroviService, Korisniciservice){
 
 
         this.$onInit=function(){
 
             this.ustanove = UstanoveService.loadUstanove();
             this.smjerovi = SmjeroviService.getSviSmjerovi();
-            this.profesori = ProfesoriService.loadProfesore();
+            this.korisnici = Korisniciservice.loadKorisnike();
 
         };
 
-        $scope.$on('init', (event, posts)=>{
+        $scope.$on('init', (event, korisnici)=>{
 
             this.ustanove=UstanoveService.loadUstanove();
-            this.profesori = ProfesoriService.loadProfesore();
+            this.korisnici = Korisniciservice.loadKorisnike();
         });
 
         this.getSmjerovi = function(){
@@ -27,9 +27,12 @@ app.component('profesori',{
             this.smjerovi = smjerovi;
         });
 
-        $scope.$on('dodanProfesor', (event, profesori)=>{
-            console.log("dodan");
-            this.profesori = profesori;
+        $scope.$on('dodanKorisnik', (event, korisnici)=>{;
+            this.korisnici = korisnici;
+        });
+
+        $scope.$on('reload', (event, korisnici)=>{
+            this.korisnici = korisnici;
         });
 
 
@@ -37,17 +40,17 @@ app.component('profesori',{
 
     },
     bindings:{
-        profesor:'<'
+        korisnik:'<'
     },
     controllerAs:'c'
 
 });
 
-app.filter('filterProfesora', function (ProfesoriService) {
+app.filter('filterKorisnika', function (Korisniciservice) {
 
-    return function(profesori, idS, idU) {
+    return function(korisnici, idS, idU) {
         if(idS == undefined && idU == undefined){
-            return profesori;
+            return korisnici;
         }
 
         let izlaz = [];
@@ -57,21 +60,21 @@ app.filter('filterProfesora', function (ProfesoriService) {
         };
 
         if(idS == undefined){
-            profesori.forEach(function (prof) {
-                if(prof.idUstanove===idU){
-                    izlaz.push(prof);
+            korisnici.forEach(function (usr) {
+                if(usr.idU===idU){
+                    izlaz.push(usr);
                 }
             });
         } else {
-            profesori.forEach(function (prof) {
-                if(prof.idUstanove==idU && prof.idS == idS){
-                    izlaz.push(prof);
+            korisnici.forEach(function (usr) {
+                if(usr.idU==idU && usr.idS == idS){
+                    izlaz.push(usr);
                 }
             });
         }
 
         if(data != undefined){
-            ProfesoriService.transfer(data);
+            Korisniciservice.transfer(data);
         }
 
         return izlaz;

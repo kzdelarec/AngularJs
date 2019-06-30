@@ -1,7 +1,7 @@
-app.component('profesoriForma',{
+app.component('korisniciForma',{
 
-    templateUrl:'./components/profesori/profesoriForma.template.html',
-    controller:function($scope, AuthenticationService, SmjeroviService, UstanoveService, RoleService, ProfesoriService){
+    templateUrl:'./components/korisnici/korisniciForma.template.html',
+    controller:function($scope, AuthenticationService, SmjeroviService, UstanoveService, RoleService, Korisniciservice){
 
         this.user=AuthenticationService.getUser();
         this.ustanove = null;
@@ -14,13 +14,18 @@ app.component('profesoriForma',{
             this.titule = RoleService.loadRole();
         };
 
-        $scope.$on('init', (event, ustanove)=>{
+        $scope.$on('init', (event, data)=>{
             this.ustanove = UstanoveService.loadUstanove();
+            if(this.titule != undefined && this.titule != null){
+                this.titule = this.titule.filter(function (item) {
+                    if(item.description === "administrator" || item.description==="student") return true;
+                });
+            }
         });
 
         $scope.$on('initRole', (event, titule)=>{
             this.titule = titule.filter(function (item) {
-                if(item.description === "profesor" || item.description==="asistent") return true;
+                if(item.description === "administrator" || item.description==="student") return true;
             });
         });
 
@@ -28,60 +33,41 @@ app.component('profesoriForma',{
             this.smjerovi = smjerovi;
         });
 
-        this.profesor = {
+        this.korisnik = {
             ime:"",
             prezime:"",
             ustanova:"",
-            roleId:"",
-            titula:"",
+            rId:"",
+            email:"",
             smjer:"",
-            smjerId:"",
-            idUstanova:""
+            idS:"",
+            idUstanove:""
         };
 
         $scope.$on('odabir', (event, data)=>{
 
-            let ustanove = this.ustanove.filter(function (item) {
-                if(item.idUstanove == data.idUstanova) return true;
-            });
-            let smjerovi = this.smjerovi.filter(function (item) {
-                if(item.idSmjera == data.smjerId && item.idUstanove == data.idUstanova) return true;
-            });
-
-            if(smjerovi.length<1){
-                this.profesor.smjer="";
-                this.profesor.smjerId="";
-            }
-
-            this.profesor.idUstanova=data.idUstanova;
-            this.profesor.smjerId = data.smjerId;
-
-            if(ustanove.length > 0){
-                this.profesor.ustanova=ustanove[0].naziv;
-            }
-
-            if(smjerovi.length > 0){
-                this.profesor.smjer=smjerovi[0].naziv;
-            }
+            this.korisnik.id = data.id;
+            this.korisnik.ime = data.ime;
+            this.korisnik.prezime = data.prezime;
+            this.korisnik.rId = data.rId;
+            this.korisnik.idS = data.idS;
+            this.korisnik.idUstanove = data.idU;
+            this.korisnik.email = data.email;
+            this.korisnik.ustanova = data.ustanova;
+            this.korisnik.smjer = data.smjer;
 
         });
 
         $scope.$on('profesorDodano', (event, status)=>{
             if(status == true){
-                this.profesor.ime="";
-                this.profesor.prezime="";
+                this.korisnik.ime="";
+                this.korisnik.prezime="";
             }
         });
 
-        this.unesi=function(){
-
-            let id = this.profesor.roleId;
-            let titula = this.titule.filter(function (item) {
-                if(item.roleid==id) return true;
-            });
-            this.profesor.titula = titula[0].description;
-            console.log(this.profesor);
-            ProfesoriService.unesiProfesora(this.profesor);
+        this.uredi=function(){
+            console.log(this.korisnik);
+            Korisniciservice.urediKorisnika(this.korisnik);
 
         };
 

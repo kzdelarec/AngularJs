@@ -11,7 +11,7 @@ $sql="SELECT CONCAT(k.ime, ' ', k.prezime) AS ime,r.description as role, k.email
 	JOIN smjerovi s ON k.smjerId = s.idSmjera
 	JOIN ustanove u ON k.idUstanove = u. idUstanove
 	JOIN role r ON k.roleId = r.roleid 
-	WHERE username ='$objData->username' AND password='$hashPass'";
+	WHERE username ='$objData->username' AND password ='$hashPass' AND active = 1";
 $result=mysqli_query($dbc,$sql);
 
 $data=array();

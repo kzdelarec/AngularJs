@@ -1,7 +1,7 @@
 app.component('profesori',{
 
     templateUrl:'./components/profesori/profesori.template.html',
-    controller:function($scope, AuthenticationService, UstanoveService, SmjeroviService, ProfesoriService){
+    controller:function($scope, AuthenticationService, UstanoveService, SmjeroviService, ProfesoriService, RoleService){
 
 
         this.$onInit=function(){
@@ -9,10 +9,12 @@ app.component('profesori',{
             this.ustanove = UstanoveService.loadUstanove();
             this.smjerovi = SmjeroviService.getSviSmjerovi();
             this.profesori = ProfesoriService.loadProfesore();
+            this.role = RoleService.loadRole();
+
 
         };
 
-        $scope.$on('init', (event, posts)=>{
+        $scope.$on('init', (event, data)=>{
 
             this.ustanove=UstanoveService.loadUstanove();
             this.profesori = ProfesoriService.loadProfesore();

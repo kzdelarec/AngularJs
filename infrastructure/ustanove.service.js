@@ -6,12 +6,23 @@ class UstanoveService {
         this.state=$state;
         this.rootScope = $rootScope;
         this.ustanove = null;
+    }
 
+    getUstanove(){
         this.http.get('./server/ustanove.php').then(d => {
 
             this.ustanove=d.data;
             console.log(this.ustanove);
             this.rootScope.$broadcast('init');
+        });
+    }
+
+    refreshUstanove(){
+        this.http.get('./server/ustanove.php').then(d => {
+
+            this.ustanove=d.data;
+            console.log(this.ustanove);
+            this.rootScope.$broadcast('refreshUstanove', this.ustanove);
         });
     }
 
@@ -32,7 +43,7 @@ class UstanoveService {
                     oib:ustanova.oib
                 });
 
-                this.rootScope.$broadcast('ustanovaDodano', true);
+                this.refreshUstanove()
 
             } else {
 

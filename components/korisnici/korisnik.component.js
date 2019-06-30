@@ -1,35 +1,23 @@
-app.component('profesor',{
+app.component('korisnik',{
 
-    templateUrl:'./components/profesori/profesor.template.html',
-    controller:function(PostsService){
+    templateUrl:'./components/korisnici/korisnik.template.html',
+    controller:function(Korisniciservice){
 
 
         this.delete=function(id){
-
-          PostsService.deletePost(id);
-
-        };
-
-        this.editing=false;
-
-        this.edit=function(){
-
-            this.editing=true;
+            Korisniciservice.obrisiKorisnika(id);
 
         };
 
-        this.doneEditing=function(){
-
-            this.editing=false;
-
-            PostsService.editPost(this.post.id, this.post.comment, new Date());
-
+        this.update=function(korisnik){
+            console.log(korisnik);
+            Korisniciservice.transfer(korisnik);
         };
 
 
     },
     bindings:{
-        profesor:'<'
+        korisnik:'<'
     },
     controllerAs:'c'
 

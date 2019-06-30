@@ -5,11 +5,11 @@ app.component('smjerovi',{
 
         this.$onInit=function(){
 
-            this.ustanove=UstanoveService.loadUstanove();
+            this.ustanove=UstanoveService.getUstanove();
             this.smjerovi = SmjeroviService.getSviSmjerovi();
         };
 
-        $scope.$on('init', (event, posts)=>{
+        $scope.$on('init', (event, ustanove)=>{
 
             this.ustanove=UstanoveService.loadUstanove();
             console.log(this.ustanove);

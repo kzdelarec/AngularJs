@@ -5,5 +5,7 @@
     </select>
 </fieldset>
 
+<div class="profil" ng-show="(c.smjerovi | filter:c.ustanova:true)<1">Nema zapisa</div>
+
 
 <smjer ng-repeat="smjer in c.smjerovi | filter:c.ustanova:true" smjer="smjer"></smjer>
