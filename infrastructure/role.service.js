@@ -9,7 +9,6 @@ class RoleService {
         this.http.get('./server/role.php').then(d => {
 
             this.role=d.data;
-            console.log("ucitao role");
             this.rootScope.$broadcast('initRole', this.role);
         });
     }

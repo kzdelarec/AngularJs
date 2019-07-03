@@ -9,7 +9,6 @@ app.component('ustanove',{
 
         $scope.$on('init', (event, ustanove)=>{
             this.ustanove=UstanoveService.loadUstanove();
-            console.log(this.ustanove);
         });
 
         $scope.$on('refresh', (event, ustanove)=>{

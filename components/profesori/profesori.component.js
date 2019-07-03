@@ -6,16 +6,14 @@ app.component('profesori',{
 
         this.$onInit=function(){
 
-            this.ustanove = UstanoveService.loadUstanove();
+            this.ustanove = UstanoveService.getUstanove();
             this.smjerovi = SmjeroviService.getSviSmjerovi();
-            this.profesori = ProfesoriService.loadProfesore();
+            this.profesori = ProfesoriService.getProfesore();
             this.role = RoleService.loadRole();
-
 
         };
 
         $scope.$on('init', (event, data)=>{
-
             this.ustanove=UstanoveService.loadUstanove();
             this.profesori = ProfesoriService.loadProfesore();
         });
@@ -30,7 +28,6 @@ app.component('profesori',{
         });
 
         $scope.$on('dodanProfesor', (event, profesori)=>{
-            console.log("dodan");
             this.profesori = profesori;
         });
 

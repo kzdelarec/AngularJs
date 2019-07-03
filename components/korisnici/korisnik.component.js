@@ -10,7 +10,6 @@ app.component('korisnik',{
         };
 
         this.update=function(korisnik){
-            console.log(korisnik);
             Korisniciservice.transfer(korisnik);
         };
 

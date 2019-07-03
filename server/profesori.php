@@ -7,7 +7,7 @@ require "dbc.php";
 
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 
-    $sql = "SELECT CONCAT(p.ime, ' ', p.prezime) AS ime, s.naziv AS smjer, s.idSmjera AS idS, u.naziv AS ustanova, u.idUstanove AS idUstanove , 
+    $sql = "SELECT p.id, CONCAT(p.ime, ' ', p.prezime) AS ime, s.naziv AS smjer, s.idSmjera AS idS, u.naziv AS ustanova, u.idUstanove AS idUstanove , 
             r.description AS titula FROM profesori p
                 JOIN role r ON p.roleId = r.roleid
                 JOIN smjerovi s ON p.smjerId = s.idSmjera

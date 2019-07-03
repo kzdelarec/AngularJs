@@ -1,13 +1,17 @@
 app.component('main', {
 
     template:`
-        <posts></posts>
+        <ocjene></ocjene>
        
     `,
     controller:function($http, $state, AuthenticationService){
 
         if (!AuthenticationService.isAuthenticated()) {
             $state.go('login');
+        }
+
+        if(AuthenticationService.getUser().role=="administrator"){
+            $state.go('profile');
         }
 
     },

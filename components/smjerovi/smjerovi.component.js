@@ -10,10 +10,7 @@ app.component('smjerovi',{
         };
 
         $scope.$on('init', (event, ustanove)=>{
-
             this.ustanove=UstanoveService.loadUstanove();
-            console.log(this.ustanove);
-
         });
 
         this.transfer = function () {
@@ -32,9 +29,7 @@ app.component('smjerovi',{
         };
 
         $scope.$on('smjer', (event, smjerovi)=>{
-            this.smjerovi = smjerovi;
-            console.log("broadcast:");
-            console.log(this.smjerovi);
+            this.smjerovi = smjerovi;;
         });
 
 

@@ -6,7 +6,7 @@ require "dbc.php";
 $data = file_get_contents("php://input");
 $objData = json_decode($data);
 $hashPass = md5($objData->password);
-$sql="SELECT CONCAT(k.ime, ' ', k.prezime) AS ime,r.description as role, k.email as email, k.username as username, 
+$sql="SELECT k.id, CONCAT(k.ime, ' ', k.prezime) AS ime,r.description as role, k.email as email, k.username as username, 
     k.smjerId, k.idUstanove, s.naziv AS smjer, u.naziv AS ustanova FROM korisnici k
 	JOIN smjerovi s ON k.smjerId = s.idSmjera
 	JOIN ustanove u ON k.idUstanove = u. idUstanove

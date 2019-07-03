@@ -1,7 +1,6 @@
 class AuthenticationService {
 
     constructor($http, $state, $rootScope){
-
         this.http=$http;
         this.user=null;
         this.state=$state;
@@ -11,11 +10,14 @@ class AuthenticationService {
     }
 
     isAuthenticated(){
-
         let auth=false;
 
-        if (this.user!=null || sessionStorage.getItem('authenticated')=="true") auth=true;
-        if (auth) this.user=JSON.parse(sessionStorage.getItem('user'));
+        if (this.user!=null || sessionStorage.getItem('authenticated')=="true") {
+            auth=true;
+        }
+        if (auth) {
+            this.user=JSON.parse(sessionStorage.getItem('user'));
+        }
 
         return auth;
 
@@ -29,11 +31,7 @@ class AuthenticationService {
 
 
         this.http.post('./server/login.php',credentials).then(d => {
-
-            console.log(d.data[0]);
-
             if (d.data[0].status=='ok'){
-
                 this.user=d.data[0];
                 sessionStorage.setItem('authenticated',true);
                 sessionStorage.setItem('user',JSON.stringify(d.data[0]));
@@ -64,9 +62,7 @@ class AuthenticationService {
 
 
             if (data.data[0].status=='ok'){
-
                 this.state.go('login');
-
             } else {
 
                 alert('Error while registering');

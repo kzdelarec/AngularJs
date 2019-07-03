@@ -9,7 +9,6 @@ class Korisniciservice {
         this.http.get('./server/korisnici.php').then(d => {
 
             this.korisnici=d.data;
-            console.log(this.korisnici);
             this.rootScope.$broadcast('init');
         });
     }
@@ -18,7 +17,6 @@ class Korisniciservice {
         this.http.get('./server/korisnici.php').then(d => {
 
             this.korisnici=d.data;
-            console.log(this.korisnici);
             this.rootScope.$broadcast('reload', this.korisnici);
         });
     }
@@ -35,7 +33,6 @@ class Korisniciservice {
         console.log("server/korisnici.php?delete=1&id="+id);
         this.http.get('server/korisnici.php?delete=1&id='+id).then((data)=>{
 
-            console.log(data);
             if (data.status===200){
                 this.reloadKorisnike();
             } else {
@@ -51,14 +48,10 @@ class Korisniciservice {
     urediKorisnika(korisnik){
 
         this.http.post('server/korisnici.php',{put:1, korisnik:korisnik}).then((data)=>{
-            debugger;
-            console.log(data);
             if (data.status===200){
                 this.reloadKorisnike();
             } else {
-
                 alert('Greška pri spremanju ustanove!');
-
             }
 
         });

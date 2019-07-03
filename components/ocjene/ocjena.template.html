@@ -4,14 +4,14 @@
             <div class="jumbotron" style="padding: 2rem 1rem;">
                 <div class="block">
                     <h2>
-                        {{c.post.ime}}
+                        {{c.ocjena.ime}}
                     </h2>
-                    <span>{{c.post.smjer}}</span>
+                    <span>{{c.ocjena.smjer}}</span>
                     <br>
-                    <span>{{c.post.ustanova}}</span>
+                    <span>{{c.ocjena.ustanova}}</span>
                 </div>
                 <div class="right jumbotron" style="padding: 1rem 1rem;">
-                    {{c.post.id}}
+                    {{c.ocjena.id}}
                     <fieldset class="rating" id="{{c.post.id}}">
                         <input type="radio" id="star5" name="rating" value="5" ng-click="c.click(c.post.id, 5)"/><label class = "full" for="star5" title="Awesome - 5 stars"></label>
                         <input type="radio" id="star4" name="rating" value="4" ng-click="c.click(c.post.id, 4)"/><label class = "full" for="star4" title="Pretty good - 4 stars"></label>

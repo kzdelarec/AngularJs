@@ -9,7 +9,7 @@ app.component('login',{
 
             AuthenticationService.login(this.credentials);
 
-        }
+        };
 
         $scope.$on('loginFailed', (event, status)=>{
 

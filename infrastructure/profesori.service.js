@@ -6,10 +6,11 @@ class ProfesoriService {
         this.rootScope = $rootScope;
         this.profesori = null;
 
-        this.http.get('./server/profesori.php').then(d => {
+    }
 
+    getProfesore(){
+        this.http.get('./server/profesori.php').then(d => {
             this.profesori=d.data;
-            console.log(this.profesori);
             this.rootScope.$broadcast('init');
         });
     }
@@ -26,16 +27,8 @@ class ProfesoriService {
 
         this.http.post('server/profesori.php', {profesor:profesor}).then((data)=>{
 
-            console.log(data);
             if (data.status===200){
-                this.profesori.push({
-                    ime:profesor.ime + " " + profesor.prezime,
-                    titula:profesor.titula,
-                    ustanova:profesor.ustanova,
-                    smjer:profesor.smjer,
-                    idS:profesor.smjerId,
-                    idUstanove:profesor.idUstanova
-                });
+                this.getProfesore();
                 this.rootScope.$broadcast('dodanProfesor', this.profesori);
             } else {
 

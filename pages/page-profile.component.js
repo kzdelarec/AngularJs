@@ -6,7 +6,6 @@ app.component('profile',{
 
             this.user=AuthenticationService.getUser();
             this.posts=PostsService.getPosts();
-            console.log(this.posts);
 
         }
 

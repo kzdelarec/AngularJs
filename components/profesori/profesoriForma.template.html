@@ -1,7 +1,7 @@
 
 <div id="login-form" class="login-clean">
     <form novalidate name="ustanoveForm" ng-submit="c.unesi(ustanoveForm.$valid)">
-        <h3>Unos ustanove:</h3>
+        <h3>Unos nastavnika:</h3>
 
         <fieldset class="form-group">
             <label>Ime</label>
@@ -15,7 +15,7 @@
 
         <fieldset class="form-group">
             <label>Titula:</label>
-            <select name="smjer" class="form-control" type="text" ng-model="c.profesor.roleId">
+            <select name="smjer" class="form-control" type="text" ng-model="c.profesor.roleId" required>
                 <option ng-repeat="titula in c.titule" value="{{titula.roleid}}">{{titula.description}}</option>
             </select>
         </fieldset>

@@ -10,11 +10,6 @@
 
     </div>
 
-    <span class="profil">Moje ocjene ({{c.posts.length}}):</span> <br/>
-
-    <div class="col-md-12">
-        <post ng-repeat="post in c.posts" editable="false" post="post"></post>
-    </div>
+    <moje-ocjene class="col-md-12" ng-show="c.user.role != 'administrator'"></moje-ocjene>
 
 </div>
-<a ui-sref="main">Back</a>

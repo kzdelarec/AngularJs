@@ -66,11 +66,10 @@ app.component('profesoriForma',{
 
         });
 
-        $scope.$on('profesorDodano', (event, status)=>{
-            if(status == true){
+        $scope.$on('dodanProfesor', (event, status)=>{
                 this.profesor.ime="";
                 this.profesor.prezime="";
-            }
+                this.profesor.roleId="";
         });
 
         this.unesi=function(){
@@ -80,7 +79,6 @@ app.component('profesoriForma',{
                 if(item.roleid==id) return true;
             });
             this.profesor.titula = titula[0].description;
-            console.log(this.profesor);
             ProfesoriService.unesiProfesora(this.profesor);
 
         };

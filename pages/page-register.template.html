@@ -15,7 +15,7 @@
         <fieldset ng-class="{ 'has-error' : registerForm.username.$invalid && !registerForm.username.$pristine}" class="form-group">
             <label>Username:</label>
             <input name="username" class="form-control" type="text" ng-model="c.credentials.username" required ng-minlength="4"/>
-            <p ng-show="registerForm.username.$error.minlength" class="validation-error" >Username is too short.</p>
+            <p ng-show="registerForm.username.$error.minlength" class="validation-error" >Korisničko ime mora sadržavati najmanje 4 znaka.</p>
         </fieldset>
 
         <fieldset class="form-group">
@@ -26,7 +26,7 @@
         <fieldset ng-class="{ 'has-error' : registerForm.email.$invalid && !registerForm.email.$pristine }" class="form-group">
             <label>Email:</label>
             <input name="email" class="form-control" type="email" ng-model="c.credentials.email" required/>
-            <p ng-show="registerForm.email.$invalid && !registerForm.email.$pristine" class="validation-error">Enter a valid email.</p>
+            <p ng-show="registerForm.email.$invalid && !registerForm.email.$pristine" class="validation-error">Nepravilno unesen email.</p>
         </fieldset>
 
         <fieldset class="form-group">

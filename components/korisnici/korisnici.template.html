@@ -17,4 +17,4 @@
 <div class="profil" ng-show="(c.korisnici | filterKorisnika:c.smjer.idS:c.ustanova.idUstanove)<1">Nema zapisa</div>
 
 
-<korisnik ng-repeat="korisnik in c.korisnici | orderBy:'id' | filterKorisnika:c.smjer.idS:c.ustanova.idUstanove" korisnik="korisnik"></korisnik>
+<korisnik ng-repeat="korisnik in c.korisnici | orderBy:'id':true | filterKorisnika:c.smjer.idS:c.ustanova.idUstanove" korisnik="korisnik"></korisnik>

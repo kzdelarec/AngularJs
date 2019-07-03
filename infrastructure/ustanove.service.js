@@ -12,7 +12,6 @@ class UstanoveService {
         this.http.get('./server/ustanove.php').then(d => {
 
             this.ustanove=d.data;
-            console.log(this.ustanove);
             this.rootScope.$broadcast('init');
         });
     }
@@ -21,7 +20,6 @@ class UstanoveService {
         this.http.get('./server/ustanove.php').then(d => {
 
             this.ustanove=d.data;
-            console.log(this.ustanove);
             this.rootScope.$broadcast('refreshUstanove', this.ustanove);
         });
     }
@@ -34,9 +32,7 @@ class UstanoveService {
 
         this.http.post('server/ustanove.php', {ustanova:ustanova}).then((data)=>{
 
-            console.log(data);
             if (data.status===200){
-
                 this.ustanove.push({
                     naziv:ustanova.naziv,
                     adresa:ustanova.adresa,

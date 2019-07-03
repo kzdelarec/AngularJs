@@ -22,10 +22,8 @@ class SmjeroviService {
     getSmjerovi(id){
         this.http.get('./server/smjerovi.php?id=' + id).then(d => {
 
-            console.log("smjerovi.php?id=" + id)
             this.smjerovi=d.data;
             if(this.smjerovi.length != 0){
-                console.log(this.smjerovi);
                 let data = {
                     id:id,
                     ustanova: this.smjerovi[0].ustanova
@@ -50,9 +48,7 @@ class SmjeroviService {
 
         this.http.post('server/smjerovi.php', {smjer:smjer}).then((data)=>{
 
-            console.log(data);
             if (data.status===200){
-
                 this.smjerovi.push({
                     naziv:smjer.naziv,
                     ustanova:smjer.ustanova,

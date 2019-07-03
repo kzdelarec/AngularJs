@@ -4,7 +4,7 @@
             <div class="jumbotron" style="padding: 2rem 1rem;">
                 <div class="block">
                     <h2>
-                        {{c.profesor.ime}}, {{c.profesor.titula}}
+                        <a ui-sref="ocjene({x:c.profesor.id})">{{c.profesor.ime}}, {{c.profesor.titula}}</a>
                     </h2>
                     <span>Ustanova: {{c.profesor.ustanova}}</span>
                     <br/>

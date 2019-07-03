@@ -38,10 +38,7 @@ app.component('smjeroviForma',{
         });
 
         this.unesi=function(){
-
-            console.log(this.smjer);
             SmjeroviService.unesiSmjer(this.smjer);
-
         };
 
     },

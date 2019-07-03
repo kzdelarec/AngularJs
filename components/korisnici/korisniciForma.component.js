@@ -45,7 +45,6 @@ app.component('korisniciForma',{
         };
 
         $scope.$on('odabir', (event, data)=>{
-
             this.korisnik.id = data.id;
             this.korisnik.ime = data.ime;
             this.korisnik.prezime = data.prezime;
@@ -55,7 +54,6 @@ app.component('korisniciForma',{
             this.korisnik.email = data.email;
             this.korisnik.ustanova = data.ustanova;
             this.korisnik.smjer = data.smjer;
-
         });
 
         $scope.$on('profesorDodano', (event, status)=>{
@@ -66,9 +64,7 @@ app.component('korisniciForma',{
         });
 
         this.uredi=function(){
-            console.log(this.korisnik);
             Korisniciservice.urediKorisnika(this.korisnik);
-
         };
 
     },

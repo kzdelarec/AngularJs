@@ -1,19 +1,14 @@
-app.component('posts',{
+app.component('ocjene',{
 
-    templateUrl:'./components/posts.template.html',
+    templateUrl:'./components/ocjene/ocjene.template.html',
     controller:function($scope, PostsService, AuthenticationService){
 
         this.$onInit=function(){
-
-            this.posts=PostsService.getPosts();
-
+            this.ocjene=PostsService.getPosts();
         };
 
         $scope.$on('init', (event, posts)=>{
-
-            this.posts=PostsService.getPosts();
-            console.log(this.posts);
-
+            this.ocjene=PostsService.getPosts();
         });
 
 

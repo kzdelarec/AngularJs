@@ -2,7 +2,7 @@
     <div class="container-fluid" class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="nav nav-pills">
 
-            <li ng-class="c.getClass('main')" role="presentation">
+            <li ng-class="c.getClass('main')" role="presentation" ng-show="c.user.role != 'administrator'">
                 <a ui-sref="main" class="nav-link">Početna</a>
             </li>
 

@@ -4,24 +4,18 @@ app.component('navBar', {
 
        this.getClass=function(c){
            if ($state.current.name==c) return 'active';
-
        };
 
        this.user=AuthenticationService.getUser();
        this.authenticated=AuthenticationService.isAuthenticated();
 
-        console.log(this.user);
         this.$doCheck=function(){
-
            this.user=AuthenticationService.getUser();
            this.authenticated=AuthenticationService.isAuthenticated();
-
        };
 
        this.logout=function(){
-
            AuthenticationService.logout();
-
        }
 
     },

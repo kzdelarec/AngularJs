@@ -13,7 +13,6 @@ app.component('ustanoveForma',{
 
         this.unesi=function(){
 
-            console.log(this.ustanova);
             UstanoveService.unesiUstanovu(this.ustanova);
 
         };

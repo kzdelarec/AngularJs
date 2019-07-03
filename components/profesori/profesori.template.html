@@ -17,4 +17,4 @@
 <div class="profil" ng-show="(c.profesori | filterProfesora:c.smjer.idS:c.ustanova.idUstanove)<1">Nema zapisa</div>
 
 
-<profesor ng-repeat="profesor in c.profesori | filterProfesora:c.smjer.idS:c.ustanova.idUstanove | orderBy:'id'" profesor="profesor"></profesor>
+<profesor ng-repeat="profesor in c.profesori | filterProfesora:c.smjer.idS:c.ustanova.idUstanove | orderBy:'id':true" profesor="profesor"></profesor>
