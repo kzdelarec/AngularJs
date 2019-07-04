@@ -1,12 +1,11 @@
 app.component('ustanova',{
 
     templateUrl:'./components/ustanove/ustanova.template.html',
-    controller:function(PostsService){
+    controller:function(){
 
     },
     bindings:{
         ustanova:'<',
-        editable:'<'
     },
     controllerAs:'c'
 

@@ -30,7 +30,6 @@ class Korisniciservice {
     }
 
     obrisiKorisnika(id){
-        console.log("server/korisnici.php?delete=1&id="+id);
         this.http.get('server/korisnici.php?delete=1&id='+id).then((data)=>{
 
             if (data.status===200){

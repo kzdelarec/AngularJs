@@ -11,13 +11,12 @@
                     <span>{{c.ocjena.ustanova}}</span>
                 </div>
                 <div class="right jumbotron" style="padding: 1rem 1rem;">
-                    {{c.ocjena.id}}
-                    <fieldset class="rating" id="{{c.post.id}}">
-                        <input type="radio" id="star5" name="rating" value="5" ng-click="c.click(c.post.id, 5)"/><label class = "full" for="star5" title="Awesome - 5 stars"></label>
-                        <input type="radio" id="star4" name="rating" value="4" ng-click="c.click(c.post.id, 4)"/><label class = "full" for="star4" title="Pretty good - 4 stars"></label>
-                        <input type="radio" id="star3" name="rating" value="3" ng-click="c.click(c.post.id, 3)"/><label class = "full" for="star3" title="Meh - 3 stars"></label>
-                        <input type="radio" id="star2" name="rating" value="2" ng-click="c.click(c.post.id, 2)"/><label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
-                        <input type="radio" id="star1" name="rating" value="1" ng-click="c.click(c.post.id, 1)"/><label class = "full" for="star1" title="Sucks big time - 1 star"></label>
+                    <fieldset class="rating" >
+                        <input type="radio" id="star5{{c.ocjena.id}}" name="ratingid{{c.ocjena.id}}" ng-model="c.ocjena.ocjena" ng-click="c.ocjeni()" value="5" /><label class = "full" for="star5{{c.ocjena.id}}"></label>
+                        <input type="radio" id="star4{{c.ocjena.id}}" name="ratingid{{c.ocjena.id}}" ng-model="c.ocjena.ocjena" ng-click="c.ocjeni()" value="4" /><label class = "full" for="star4{{c.ocjena.id}}"></label>
+                        <input type="radio" id="star3{{c.ocjena.id}}" name="ratingid{{c.ocjena.id}}" ng-model="c.ocjena.ocjena" ng-click="c.ocjeni()" value="3" /><label class = "full" for="star3{{c.ocjena.id}}"></label>
+                        <input type="radio" id="star2{{c.ocjena.id}}" name="ratingid{{c.ocjena.id}}" ng-model="c.ocjena.ocjena" ng-click="c.ocjeni()" value="2" /><label class = "full" for="star2{{c.ocjena.id}}"></label>
+                        <input type="radio" id="star1{{c.ocjena.id}}" name="ratingid{{c.ocjena.id}}" ng-model="c.ocjena.ocjena" ng-click="c.ocjeni()" value="1" /><label class = "full" for="star1{{c.ocjena.id}}"></label>
                     </fieldset>
                 </div>
             </div>

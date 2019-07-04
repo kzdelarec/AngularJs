@@ -22,11 +22,11 @@ app.component('ocjeneProf', {
                             <div class="right jumbotron" style="padding: 0rem 1rem;">
 
                             <fieldset class="rating" disabled>
-                                <input type="radio" id="star5" name="rating" ng-model="zapis.ocjena" value="5" /><label class = "full" for="star5"></label>
-                                <input type="radio" id="star4" name="rating" ng-model="zapis.ocjena" value="4" /><label class = "full" for="star4"></label>
-                                <input type="radio" id="star3" name="rating" ng-model="zapis.ocjena" value="3" /><label class = "full" for="star3"></label>
-                                <input type="radio" id="star2" name="rating" ng-model="zapis.ocjena" value="2" /><label class = "full" for="star2"></label>
-                                <input type="radio" id="star1" name="rating" ng-model="zapis.ocjena" value="1" /><label class = "full" for="star1"></label>
+                                <input type="radio" id="star5" name="ratingid{{zapis.id}}" ng-model="zapis.ocjena" value="5" /><label class = "full" for="star5"></label>
+                                <input type="radio" id="star4" name="ratingid{{zapis.id}}" ng-model="zapis.ocjena" value="4" /><label class = "full" for="star4"></label>
+                                <input type="radio" id="star3" name="ratingid{{zapis.id}}" ng-model="zapis.ocjena" value="3" /><label class = "full" for="star3"></label>
+                                <input type="radio" id="star2" name="ratingid{{zapis.id}}" ng-model="zapis.ocjena" value="2" /><label class = "full" for="star2"></label>
+                                <input type="radio" id="star1" name="ratingid{{zapis.id}}" ng-model="zapis.ocjena" value="1" /><label class = "full" for="star1"></label>
                             </fieldset>
                         </div>
                         </div>

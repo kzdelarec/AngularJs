@@ -1,17 +1,15 @@
 app.component('ocjene',{
 
     templateUrl:'./components/ocjene/ocjene.template.html',
-    controller:function($scope, PostsService, AuthenticationService){
+    controller:function($scope, OcjeneService, AuthenticationService){
 
         this.$onInit=function(){
-            this.ocjene=PostsService.getPosts();
+            this.ocjene=OcjeneService.getBezOcjene(AuthenticationService.getUser());
         };
 
-        $scope.$on('init', (event, posts)=>{
-            this.ocjene=PostsService.getPosts();
+        $scope.$on('init', (event, ocjene)=>{
+            this.ocjene=ocjene;
         });
-
-
 
         this.user=AuthenticationService.getUser();
 

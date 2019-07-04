@@ -1,7 +1,7 @@
 app.component('smjer',{
 
     templateUrl:'./components/smjerovi/smjer.template.html',
-    controller:function(PostsService){
+    controller:function(){
 
     },
     bindings:{
